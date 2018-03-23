@@ -15,13 +15,16 @@ public class RegisterController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private Product product;
 
 	@RequestMapping(value = "/RegisterKey", method = RequestMethod.POST)
 	public String showDetail(@RequestParam("Token") String token, Model model) {
 		
 		if (token != null) {
 			
-			Product product = new Product();
+			// Product product = new Product();
 			
 			product.setToken(token);
 			

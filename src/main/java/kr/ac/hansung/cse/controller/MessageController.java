@@ -15,14 +15,13 @@ import com.google.android.gcm.server.Sender;
 import kr.ac.hansung.cse.service.ProductService;
 
 @Controller
-@RequestMapping("/sendMessage")
 public class MessageController {
 
 	@Autowired
 	private ProductService productService;
 
-	@RequestMapping
-	public String adminPage() throws IOException {
+	@RequestMapping("/sendMessage")
+	public String sendMessage() throws IOException {
 
 		String msg = "hello";
 
@@ -40,6 +39,7 @@ public class MessageController {
 		Message message = new Message.Builder().collapseKey(MESSAGE_ID).delayWhileIdle(SHOW_ON_IDLE)
 				.timeToLive(LIVE_TIME).addData("message", msg).build();
 		MulticastResult result1 = sender.send(message, token, RETRY);
+		
 		if (result1 != null) {
 			List<Result> resultList = result1.getResults();
 			for (Result result : resultList) {
