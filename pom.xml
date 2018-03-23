@@ -195,5 +195,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<artifactId>eStore</artifactId>
+	<artifactId>FCMServer</artifactId>
 </project>
